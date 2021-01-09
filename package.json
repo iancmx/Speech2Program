@@ -18,6 +18,10 @@
 			{
 				"command": "speech2program.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "speech2program.startMain",
+				"title": "Starts Speech2Program"
 			}
 		]
 	},
