@@ -6,6 +6,9 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"env": {
+				"GOOGLE_APPLICATION_CREDENTIALS": "${workspaceFolder}\\google-services.json"
+			},
 			"name": "Run Extension",
 			"type": "extensionHost",
 			"request": "launch",

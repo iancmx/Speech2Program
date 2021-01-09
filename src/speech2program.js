@@ -1,6 +1,7 @@
 const recorder = require('node-record-lpcm16');
 const speech = require('@google-cloud/speech');
 const { parseConfigFileTextToJson } = require('typescript');
+const vscode = require('vscode');
 
 class Speech2Program {
 
@@ -16,7 +17,7 @@ class Speech2Program {
         this.config.languageCode = 'en-US';
         this.client = new speech.SpeechClient();
         this.request = {
-            ...this.config,
+            config: this.config,
             interimResults: false, //Get interim results from stream
         }
         this.recognizeStream = this.client
@@ -24,14 +25,17 @@ class Speech2Program {
             .on('error', console.error)
             .on('data', (data) => {
                 if (data.results[0] && data.results[0].alternatives[0]){
-                    process.stdout.write(`Transcription: ${data.results[0].alternatives[0].transcript}\n`)
+                    vscode.window.showInformationMessage(`Transcription: ${data.results[0].alternatives[0].transcript}\n`);
+                    // process.stdout.write(`Transcription: ${data.results[0].alternatives[0].transcript}\n`)
                 } else {
-                    process.stdout.write('\n\nReached transcription time limit, press Ctrl+C\n')
+                    vscode.window.showInformationMessage('\n\nReached transcription time limit, press Ctrl+C\n');
+                    // process.stdout.write('\n\nReached transcription time limit, press Ctrl+C\n')
                 }
             });
     }
 
     startSpeech2Program() {
+        vscode.window.showInformationMessage('Starting Speech2Program');
         recorder
             .record({
                 sampleRateHertz: this.config.sampleRateHertz,
