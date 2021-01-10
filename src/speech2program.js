@@ -2,7 +2,7 @@ const recorder = require('node-record-lpcm16');
 const speech = require('@google-cloud/speech');
 const { parseConfigFileTextToJson } = require('typescript');
 const vscode = require('vscode');
-const lut = require('./lut.js')
+const {evaluateString} = require('./lut.js')
 
 class Speech2Program {
 
@@ -26,9 +26,8 @@ class Speech2Program {
             .on('error', console.error)
             .on('data', (data) => {
                 if (data.results[0] && data.results[0].alternatives[0]){
-                    const words = data.results[0].alternatives[0].transcript.split(" ");
-                    words.forEach(function(word){lut.insertText(word)});
                     vscode.window.showInformationMessage(`Transcription: ${data.results[0].alternatives[0].transcript}\n`);
+                    evaluateString(data.results[0].alternatives[0].transcript)
                     // process.stdout.write(`Transcription: ${data.results[0].alternatives[0].transcript}\n`)
                 } else {
                     vscode.window.showInformationMessage('\n\nReached transcription time limit, press Ctrl+C\n');

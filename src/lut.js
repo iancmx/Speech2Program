@@ -3,6 +3,14 @@ const speech = require('@google-cloud/speech');
 const { parseConfigFileTextToJson } = require('typescript');
 const vscode = require('vscode');
 
+exports.evaluateString = (transcript) => {
+    let action = transcript.split(" ")[0]
+    switch(action) {
+        default: 
+            insertText(transcript)
+    }
+}
+
 function insertText(text)
 {
     const editor = vscode.window.activeTextEditor;
@@ -14,11 +22,11 @@ function insertText(text)
             if (editor.selection.isEmpty)
             {
                 const position = editor.selection.active;
-                editBuilder.insert(position,text)
+                editBuilder.insert(position,text + "\n")
             }
         });
 
     }
 }
 
-exports.insertText = insertText()
+exports.insertText = insertText
