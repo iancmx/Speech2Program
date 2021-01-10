@@ -10,20 +10,26 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:speech2program.helloWorld"
+		"onCommand:speech2program.startMain"
 	],
 	"main": "./src/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "speech2program.helloWorld",
-				"title": "Hello World"
-			},
-			{
 				"command": "speech2program.startMain",
 				"title": "Starts Speech2Program"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Programming Language",
+			"properties": {
+				"speech2program.language": {
+					"type": "string",
+					"default": "javascript",
+					"description": "Sets the current programming language"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
