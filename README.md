@@ -1,65 +1,80 @@
-# speech2program README
+#Speech2Program 🎤
+## Inspiration
+We wanted to create something that will impact the community in a meaningful way, and decided to make something that will introduce more people to the world of programming, by breaking the accessibility barrier. Everyone programs by physically typing on a keyboard without a second thought, but what about those that are unable or find it hard to interact with a keyboard? That's why we've decided to build Speech2Program for all the people out there that don't yet know they love programming!
 
-This is the README for your extension "speech2program". After writing up a brief description, we recommend including the following sections.
+## What it does
+Speech2Program is a VS Code extension that takes in voice input from the user's microphone, parses the message and performs actions within the editor, ultimately helping the user program via voice. The user is able to write classes, functions, move the cursor, select text and many more - all by voice! Here are a few of the things the user could say:
 
-## Features
+**"New function test"**
+The editor would then type out:
+```
+def test:
+```
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+**"For x in range 0 to 100"**
+```
+for x in range(0,100):
+```
+**"Jump to line 160"*
+**"undo"*
+**"new line"**
 
-For example if there is an image subfolder under your extension project workspace:
+## How I built it
 
-\!\[feature X\]\(images/feature-x.png\)
+This VS Code Extension was mainly built via Microsoft's VS Code extension's API and Google Cloud's speech-to-text API. Input from the user's microphone 
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Challenges I ran into
 
-## Requirements
+## Accomplishments that I'm proud of
+We are extremely proud that we are able to develop the VS Code extension all under a day being that we were all new to the VS Code extension API. We learned a lot during this process of reading VS Code's and Google Cloud's documentation. 
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Ultimately, we are proud that we are able to use our extension to code a relatively simple program all via voice. 
 
-## Extension Settings
+## What I learned
+We attended the hackathon with the objective of learning and developing software that would make an impact on the community. After coming up with the idea of Speech2Program, we realized that we were new to all the technologies that we had to use in creating the VS Code extension. A whole lot of time was spent reading and learning VS Code extension API, understanding how to interact with the editor, and trigger shortcuts. In addition, we learned how to use the Google Cloud's speech to text api to take input from our microphones and convert them into readable text. We also had to learn one of the Google technologies - GRPC, which is a REST api alternative made by Google that is faster at receiving and sending data.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## What's next for Speech2Program
+Customization and optimisation of Google's Cloud Speech-To-Text service will allow us to create a "programmer" profile that is specifically designed to understand and interpret coding lingo, which will greatly enhance the usability and efficiency of Speech2Program. Specifically, we wish to use more NLP to effectively break down user sentences into coding chunks with greater accuracy to increase flexibility and move away from the naive and limited approach. 
 
-For example:
+Expanding Speech2Program to include more programming languages is also a task that we have planned, to allow users more freedom in their project language.
 
-This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+## Possible user inputs
+1. *new class __engine__*
+```
+def class engine:
 
-## Known Issues
+```
+2. *new function __delete__*
+```
+def delete:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```
+3. *x in range 0 to 10*
+```
+for x in range(0,100):
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+```
+4. *box equals 3*
+```
+box = 3
+```
+5. *function print*
+```
+print()
+```
+6. *string hello world*
+```
+"hello world"
+```
+7. *jump to line 20* - puts cursor on line 20
+8. *delete line* - deletes the current line
+9. *indent* - indents the current line
+10. *unindent* - unindent the current line
+11. *copy* - copies the current selection
+12. *paste* - paste on cursor position
+13. *next line* - moves cursor to the line below
+14. *previous line* - moves cursor to the line above
+15. *new file* - creates a new file
+16. *select* - selects the current line
+17. *delete* - deletes the word behind the cursor
