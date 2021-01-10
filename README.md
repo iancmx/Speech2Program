@@ -1,4 +1,4 @@
-#Speech2Program 🎤
+# Speech2Program 🎤
 ## Inspiration
 We wanted to create something that will impact the community in a meaningful way, and decided to make something that will introduce more people to the world of programming, by breaking the accessibility barrier. Everyone programs by physically typing on a keyboard without a second thought, but what about those that are unable or find it hard to interact with a keyboard? That's why we've decided to build Speech2Program for all the people out there that don't yet know they love programming!
 
