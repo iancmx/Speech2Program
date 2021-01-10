@@ -3,6 +3,7 @@
 	"displayName": "Speech2Program",
 	"description": "Allows programming via speech",
 	"version": "0.0.1",
+	"icon": "icon.png",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -10,7 +11,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:speech2program.startMain"
+		"*"
 	],
 	"main": "./src/extension.js",
 	"contributes": {

@@ -10,6 +10,9 @@ class Speech2Program {
         encoding: 'LINEAR16',
         sampleRateHertz: 16000,
         languageCode: 'en-US',
+        speechContexts: [{
+            phrases: ["for x in range", "loop x through", "x gets y", "y equals z", "outdent", "run", "undo", "new class", "new function"]
+        }]
     };
 
     constructor(encoding='LINEAR16', sampleRateHertz=16000, languageCode='en-US') {
@@ -27,7 +30,7 @@ class Speech2Program {
             .on('data', (data) => {
                 if (data.results[0] && data.results[0].alternatives[0]){
                     vscode.window.showInformationMessage(`Transcription: ${data.results[0].alternatives[0].transcript}\n`);
-                    evaluateString(data.results[0].alternatives[0].transcript.trim())
+                    evaluateString(data.results[0].alternatives[0].transcript.trim().toLowerCase())
                     // process.stdout.write(`Transcription: ${data.results[0].alternatives[0].transcript}\n`)
                 } else {
                     vscode.window.showInformationMessage('\n\nReached transcription time limit, press Ctrl+C\n');

@@ -14,11 +14,7 @@ function activate(context) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Speech2Program is now active! Start talking to program!');
-	let speech2program = vscode.commands.registerCommand('speech2program.startMain', function () {
-		speech2programClient.startSpeech2Program()
-	})
-
-	context.subscriptions.push(speech2program);
+	speech2programClient.startSpeech2Program()
 }
 exports.activate = activate;
 
