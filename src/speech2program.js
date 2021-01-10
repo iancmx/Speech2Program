@@ -27,7 +27,7 @@ class Speech2Program {
             .on('data', (data) => {
                 if (data.results[0] && data.results[0].alternatives[0]){
                     vscode.window.showInformationMessage(`Transcription: ${data.results[0].alternatives[0].transcript}\n`);
-                    evaluateString(data.results[0].alternatives[0].transcript)
+                    evaluateString(data.results[0].alternatives[0].transcript.trim())
                     // process.stdout.write(`Transcription: ${data.results[0].alternatives[0].transcript}\n`)
                 } else {
                     vscode.window.showInformationMessage('\n\nReached transcription time limit, press Ctrl+C\n');
